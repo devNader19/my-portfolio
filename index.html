@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nader - Backend Developer Portfolio</title>
+    <script>
+      // Initialize theme before page load to prevent flash
+      (function() {
+        const theme = localStorage.getItem('theme') || 
+          (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const isDark = theme === 'dark';
+        const root = document.documentElement;
+        
+        root.setAttribute('data-theme', theme);
+        root.style.setProperty('--bg-primary', isDark ? '#0f172a' : '#ffffff');
+        root.style.setProperty('--bg-secondary', isDark ? '#1e293b' : '#f8f9fa');
+        root.style.setProperty('--text-primary', isDark ? '#f1f5f9' : '#1a1a1a');
+        root.style.setProperty('--text-secondary', isDark ? '#94a3b8' : '#6c757d');
+        root.style.setProperty('--accent-primary', isDark ? '#818cf8' : '#6366f1');
+        root.style.setProperty('--accent-secondary', isDark ? '#a78bfa' : '#8b5cf6');
+        root.style.setProperty('--accent-tertiary', isDark ? '#f472b6' : '#ec4899');
+        root.style.setProperty('--border-color', isDark ? '#334155' : '#e5e7eb');
+        root.style.setProperty('--card-bg', isDark ? '#1e293b' : '#ffffff');
+        root.style.setProperty('--shadow', isDark ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)');
+        
+        document.body.style.backgroundColor = isDark ? '#0f172a' : '#ffffff';
+        document.body.style.color = isDark ? '#f1f5f9' : '#1a1a1a';
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
